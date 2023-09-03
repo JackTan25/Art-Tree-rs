@@ -5,4 +5,12 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[workspace]
+members = [
+
+]
+
 [dependencies]
+bytes = { version = "1.4.0", features = ["serde"] }
+thiserror = "1.0.48"
+

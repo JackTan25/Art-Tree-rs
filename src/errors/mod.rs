@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#[allow(unused)]
-pub struct Node4 {}
-
-impl Node4 {}
+mod error;
+pub use error::Errors;
+pub use error::Result;

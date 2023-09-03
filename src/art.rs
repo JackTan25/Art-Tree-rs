@@ -12,15 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use crate::fixed_size_allocator::FixedSizeAllocator;
-use crate::node::Node;
+use bytes::Bytes;
 
+use crate::{
+    art_key::ArtKey,
+    index::nodes::{fixed_size_allocator::FixedSizeAllocator, node::Node},
+};
+
+// todo:(JackTan25) concurrent art-tree
 #[allow(unused)]
-struct Art {
+pub struct Art {
     /// ! Root of the tree
     tree: Node,
     /// ! Fixed-size allocators holding the ART nodes
     allocators: Vec<FixedSizeAllocator>,
     ///! True, if the ART owns its data
     owns_data: bool,
+}
+
+#[allow(dead_code, unused)]
+impl Art {
+    ///! insert a k-v pair into art-tree
+    pub fn insert(&mut self, art_key: ArtKey, values: Bytes) {}
+
+    ///! delete key from art-tree, if not-existed, do nothing.
+    pub fn delete(&mut self, art_key: ArtKey) {}
+
+    ///! Find the node with a matching key, or return nullptr if not found
+    pub fn look_up(node: Node, key: &mut ArtKey, depth: usize) -> Node {
+        todo!()
+    }
 }

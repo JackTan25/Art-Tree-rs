@@ -12,7 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#[allow(unused)]
-pub struct Node4 {}
+use thiserror::Error;
 
-impl Node4 {}
+// 这个文件用来自定义我们自己的error
+#[allow(dead_code)]
+#[derive(Error, Debug, PartialEq)]
+pub enum Errors {
+    // 利用thiserror来实现display
+    #[error("Fail to insert art_key")]
+    FailInsert,
+}
+
+#[allow(unused)]
+pub type Result<T> = std::result::Result<T, Errors>;
