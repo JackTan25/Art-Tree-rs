@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+use crate::index::index_pointer::IndexPointer;
+
 #[allow(unused)]
 pub enum NodeType {
     PREFIX,
@@ -23,4 +25,19 @@ pub enum NodeType {
     LeafInlined,
 }
 
-pub struct Node {}
+// Data holds all the information contained in an IndexPointer
+// [0 - 7: metadata,
+// 8 - 23: offset, 24 - 63: buffer ID]
+pub struct Node {
+    data: u64,
+}
+
+impl IndexPointer for Node {
+    fn get(&self) -> u64 {
+        self.data
+    }
+
+    fn set(&mut self, data_p: u64) {
+        self.data = data_p
+    }
+}

@@ -43,3 +43,7 @@ impl Art {
         todo!()
     }
 }
+
+impl Art {
+    fn insert_internal(&mut self, art_key: ArtKey, values: Bytes) {}
+}
